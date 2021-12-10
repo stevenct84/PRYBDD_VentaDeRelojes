@@ -101,3 +101,10 @@ Se espera un código fuente que siga las normas básicas establecidas en el libr
   - Diccionario de datos.
   - Documento de matriz de casos de prueba en Excel con mínimo **50 CASOS DE PRUEBA**. (Id prueba, descripción, resultado esperado, estado).
   - Código documentado según estándar **Clean Code**.
+
+## Autores
+[![Hansol A. Rostrán github stats](https://github-readme-stats.vercel.app/api?username=hros19&theme=vue&show_icons=true)](https://github.com/anuraghazra/github-readme-stats)
+[![earlac github stats](https://github-readme-stats.vercel.app/api?username=earlac&theme=vue&show_icons=true)](https://github.com/anuraghazra/github-readme-stats)
+[![Nico-skz github stats](https://github-readme-stats.vercel.app/api?username=Nico-skz&theme=vue&show_icons=true)](https://github.com/anuraghazra/github-readme-stats)
+[![René Sánchez github stats](https://github-readme-stats.vercel.app/api?username=renejr08&theme=vue&show_icons=true)](https://github.com/anuraghazra/github-readme-stats)
+[![Jonathan Camacho Tencio github stats](https://github-readme-stats.vercel.app/api?username=stevenct84&theme=vue&show_icons=true)](https://github.com/anuraghazra/github-readme-stats)
