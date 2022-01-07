@@ -4,6 +4,7 @@
  */
 package view;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -14,7 +15,6 @@ import javax.swing.JPanel;
  * @author rostr
  */
 public class LoginForm extends javax.swing.JFrame {
-
    PanelBackground background = new PanelBackground();
   public LoginForm() {
     this.setContentPane(background);
@@ -33,6 +33,8 @@ public class LoginForm extends javax.swing.JFrame {
     entryUsername = new javax.swing.JTextField();
     entryPassword = new javax.swing.JPasswordField();
     chckbxShowPassword = new javax.swing.JCheckBox();
+    btnRegister = new javax.swing.JButton();
+    btnLogin = new javax.swing.JButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setMinimumSize(new java.awt.Dimension(900, 600));
@@ -42,7 +44,7 @@ public class LoginForm extends javax.swing.JFrame {
 
     btnExit.setBackground(new java.awt.Color(255, 153, 153));
     btnExit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-    btnExit.setText("Exit");
+    btnExit.setText("Salir");
     btnExit.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         btnExitActionPerformed(evt);
@@ -51,25 +53,72 @@ public class LoginForm extends javax.swing.JFrame {
     getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 740, 140, 40));
 
     entryUsername.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-    entryUsername.setText("Username");
+    entryUsername.setForeground(Color.LIGHT_GRAY);
+    entryUsername.setText("Usuario o eMail");
     entryUsername.setBorder(null);
+    entryUsername.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusGained(java.awt.event.FocusEvent evt) {
+        entryUsernameFocusGained(evt);
+      }
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        entryUsernameFocusLost(evt);
+      }
+    });
     getContentPane().add(entryUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 650, 70));
 
     entryPassword.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-    entryPassword.setText("Password");
+    entryPassword.setText("Clave");
     entryPassword.setBorder(null);
     entryPassword.setPreferredSize(new java.awt.Dimension(108, 29));
+    entryPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusGained(java.awt.event.FocusEvent evt) {
+        entryPasswordFocusGained(evt);
+      }
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        entryPasswordFocusLost(evt);
+      }
+    });
+    entryPassword.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        entryPasswordActionPerformed(evt);
+      }
+    });
     getContentPane().add(entryPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, 650, 70));
 
     chckbxShowPassword.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
     chckbxShowPassword.setForeground(new java.awt.Color(255, 255, 255));
-    chckbxShowPassword.setText("Show Password");
+    chckbxShowPassword.setSelected(true);
+    chckbxShowPassword.setText("Mostrar contraseña");
     chckbxShowPassword.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         chckbxShowPasswordActionPerformed(evt);
       }
     });
-    getContentPane().add(chckbxShowPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 550, 160, 30));
+    getContentPane().add(chckbxShowPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 550, 200, 30));
+
+    btnRegister.setBackground(new java.awt.Color(153, 0, 51));
+    btnRegister.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
+    btnRegister.setForeground(new java.awt.Color(255, 255, 255));
+    btnRegister.setText("Registrarse");
+    btnRegister.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+    btnRegister.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnRegisterActionPerformed(evt);
+      }
+    });
+    getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 690, 180, 50));
+
+    btnLogin.setBackground(new java.awt.Color(0, 102, 0));
+    btnLogin.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
+    btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+    btnLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+    btnLogin.setLabel("Ingresar");
+    btnLogin.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnLoginActionPerformed(evt);
+      }
+    });
+    getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 610, 180, 50));
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
@@ -86,6 +135,53 @@ public class LoginForm extends javax.swing.JFrame {
   private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
     System.exit(0);
   }//GEN-LAST:event_btnExitActionPerformed
+
+  private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+    RegisterForm rf = new RegisterForm();
+    rf.show();
+    dispose();
+  }//GEN-LAST:event_btnRegisterActionPerformed
+
+  private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_btnLoginActionPerformed
+
+  private void entryUsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_entryUsernameFocusGained
+    if (entryUsername.getText() == "" || entryUsername.getText() == "Usuario o eMail") {
+      entryUsername.setText("");
+      entryUsername.setForeground(Color.BLACK);
+    }
+  }//GEN-LAST:event_entryUsernameFocusGained
+
+  private void entryUsernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_entryUsernameFocusLost
+    if (entryUsername.getText() == "" || entryUsername.getText() == "Usuario o eMail") {
+      entryUsername.setText("Usuario o eMail");
+      entryUsername.setForeground(Color.LIGHT_GRAY);
+    }
+  }//GEN-LAST:event_entryUsernameFocusLost
+
+  private void entryPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_entryPasswordFocusGained
+    if (entryPassword.getText() == "" || entryPassword.getText() == "Clave") {
+      entryPassword.setForeground(Color.BLACK);
+      entryPassword.setText("");
+      chckbxShowPassword.doClick();
+    }
+  }//GEN-LAST:event_entryPasswordFocusGained
+
+  private void entryPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_entryPasswordFocusLost
+    if (entryPassword.getText() == "" || entryPassword.getText() == "Clave") {
+      entryPassword.setForeground(Color.LIGHT_GRAY);
+      entryPassword.setText("Clave");
+      chckbxShowPassword.doClick();
+    }
+    //entryPassword.setForeground(Color.LIGHT_GRAY);
+    //entryPassword.setText("Clave");
+    //chckbxShowPassword.doClick();
+  }//GEN-LAST:event_entryPasswordFocusLost
+
+  private void entryPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entryPasswordActionPerformed
+    chckbxShowPassword.setEnabled(true);
+  }//GEN-LAST:event_entryPasswordActionPerformed
 
   /**
    * @param args the command line arguments
@@ -124,6 +220,8 @@ public class LoginForm extends javax.swing.JFrame {
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JToggleButton btnExit;
+  private javax.swing.JButton btnLogin;
+  private javax.swing.JButton btnRegister;
   private javax.swing.JCheckBox chckbxShowPassword;
   private javax.swing.JPasswordField entryPassword;
   private javax.swing.JTextField entryUsername;
